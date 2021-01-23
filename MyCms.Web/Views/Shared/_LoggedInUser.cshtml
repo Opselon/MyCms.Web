@@ -1,0 +1,21 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+    <section class="category-section border-radius">
+        <header><i class="fa fa-users"></i> <h3> @User.Identity.Name خوش امدید </h3></header>
+        <ul>
+            <li><a asp-area="Admin" asp-controller="PageGroups" asp-action="Index">مدیریت گروه ها</a></li>
+            <li><a asp-area="Admin" asp-controller="Pages" asp-action="Index">مدیریت خبر ها</a></li>
+            <li ><a class="text-danger" asp-area="Identity" asp-controller="Account" asp-action="Logout">خروج</a></li>
+        </ul>
+    </section>
+}
+else
+{
+    <section class="category-section border-radius">
+        <header><i class="fa fa-folder-open-o"></i> <h3>کاربر جدید خوش امدید</h3></header>
+        <ul>
+            <li class="text-danger" ><a asp-action="Login" asp-area="Identity" asp-controller="Account" > ورود به سایت </a></li>
+            
+        </ul>
+    </section>
+}

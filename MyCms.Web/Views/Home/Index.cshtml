@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@using MyCms.DomainClasses.Page
+@using MyCms.Utilities.Convertor
+@model IEnumerable<Page>
+@{
+
+    ViewData["Title"] = "Index";
+    List<Page> Sliders = ViewData["Slider"] as List<Page>;
+}
+<!-- slider -->
+@if (Sliders.Any())
+{
+    <div class="news-slider border-radius">
+        <div id="slider-one" class="owl-carousel">
+            @foreach (var item in Sliders)
+            {
+                <div class="item">
+                    <img src="/PageImages/@item.ImageName">
+                    <div class="left-side">
+                        <h2> <a href="/News/@item.PageID">@item.PageTitle</a> </h2>
+                        <p>
+                            @item.ShortDescription
+                        </p>
+                        <span> <i class="fa fa-calendar"></i> انتشار : @item.CreateDate.ToShamsi()</span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            }
+        </div>
+        <a href="" class="news-archive"> <i class="icons icon-doc-1"></i> آرشیو کامل خبرها </a>
+    </div>
+}
+<!-- End slider -->
+<!-- last news -->
+
+<!-- End last news -->
